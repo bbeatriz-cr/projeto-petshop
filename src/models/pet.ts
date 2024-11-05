@@ -175,29 +175,35 @@ export const Pet = {
     getAll:() =>{
         return data
     },
+
+    getFromType: (type: PetType): Pet[] =>{
+        return data.filter(item =>{
+    
+            // se o item for igual o type que eu recebi no meu parametro (PetType) então retorne true para esse item
+            if(item.type == type){
+                return true
+            }else{
+                return false
+            }
+        })
+    },
+
+    getFromName: (name: string): Pet[] => {
+        return data.filter(item =>{
+            if(item.name.toLowerCase().indexOf(name.toLowerCase())>-1){
+                return true
+            }else{
+                return false
+            }
+        })
+    }
+    
+
+
 }
 
-getFromType: (type: PetType): Pet[] =>{
-    return data.filter(item =>{
 
-        // se o item for igual o type que eu recebi no meu parametro (PetType) então retorne true para esse item
-        if(item.type == type){
-            return true
-        }else{
-            return false
-        }
-    })
-}
 
-getFromName: (name: string): Pet[] => {
-    return data.filter(item =>{
-        if(item.name.toLowerCase().indexOf(name.toLowerCase())>-1){
-            return true
-        }else{
-            return false
-        }
-    })
-}
 
 
 
